@@ -1,0 +1,92 @@
+<head>
+	<title>Emerald and Wax Designs</title>
+		<meta name="description" content="Emerald and Wax version 2.0.4 April 2nd 2016. 
+		Based on Introduction to Meteor.js Development - the third course in the Responsive Website Design and Development specialization.">
+</head>
+
+<body>
+</body>
+
+<template name="ApplicationLayout">
+	{{> yield "navbar"}}
+	{{> yield "main"}}
+</template>
+
+<template name="welcome">
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Welcome to Emerald and Wax!</h1>
+			<a href="/categories" class="btn btn-info">ENTER</a>
+		</div>
+	</div>
+</template>
+
+<template name="navbar">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			top nav bar
+			
+			<!-- 
+			  the search box from 'Course 2. Responsive_Web_Design - Week 4 - Implementing a search function'
+			  (It is given the navbar-form class so that bootstrap puts it in the top navbar - N/A here since in navbar div ???)
+			-->
+			<div class="navbar-form navbar-right">
+			  <input id="searchbox" type="text" class="form-control" placeholder="Search...">
+			</div>
+			
+			<!-- A navigation menu that selects different views -->
+			<!--
+			<ul class="nav nav-tabs">
+				<li role="" class="active"><a href="#" id="category-tab" >Home</a></li>
+				<li role=""><a href="#" id="about-tab" >About</a></li>
+				<li role=""><a href="#" id="contact-tab" >Contact Us</a></li>
+			</ul>	
+			-->
+			
+		</div>
+	</nav>
+</template>
+
+<template name="categories">
+	<div class="container js-container">
+		<div class="row">
+			{{#each categories}}
+			<div class="col-xs-12 col-md-3">
+				<div class="thumbnail">
+					<a href="/products/{{_id}}">
+						<img class="js-category thumbnail-img" src="{{img_src}}" alt="{{img_alt}}"/> 	
+					</a>
+					<div class="caption">
+						<h3><a href="/products/{{_id}}">{{img_alt}}</a></h3>
+						<!--h3><a href="#" class="js-show-category-products"></a></h3-->				
+						<p>{{desc}}</p>					
+					</div><!-- / caption --> 
+				</div> <!-- / thumbnail --> 
+			</div> <!-- / col -->
+			{{/each}}
+	   </div> <!-- / row -->
+   </div> <!-- / container -->
+</template>
+
+<template name="products">
+	<div class="container">
+		<h2>{{img_alt}}</h2>
+		
+		<!--
+		<a href="/categories"><img class="single-img" src="/{{img_src}}"/></a>
+		-->
+		{{#each products}}
+		<div class="col-xs-12 col-md-3">
+
+			<p> {{name}} </p>
+			<img class="single-img" src="{{image1}}"/>
+			<p> {{description}} </p>
+			<!--
+			<p> {{products.[0].image1}} </p>
+			<p> {{products.[0].description}} </p>
+			-->
+		<!-- display products.[0].name - need to use products id ???? -->
+		</div> <!-- / col -->
+		{{/each}}
+	</div> <!-- / container -->
+</template>

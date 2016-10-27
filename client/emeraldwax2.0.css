@@ -1,0 +1,18 @@
+/* CSS declarations go here */
+/* dimensions of thumbnail grid */
+.thumbnail {
+	/*min-height:500px;
+	max-height:500px;*/
+	height:500px;
+}
+/* dimensions of image within thumbnail grid */
+.thumbnail-img {
+	max-height:300px;
+}
+body {
+	padding-top:60px;
+}
+/* dimensions of single image displayed on products page */
+.single-img {
+	max-width:100%;
+}
